@@ -1,0 +1,255 @@
+/* Add these styles to your existing style.css */
+
+/* Search Container */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 16px 8px 40px;
+    border-radius: 4px;
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.search-container:hover .search-input,
+.search-input:focus {
+    width: 250px;
+    opacity: 1;
+    border-color: #e50914;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    z-index: 1;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Search Results Dropdown */
+.search-results-dropdown {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.search-results-dropdown.show {
+    display: block;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #333;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: #e50914;
+}
+
+.search-result-item img {
+    width: 50px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.search-result-info {
+    flex: 1;
+}
+
+.search-result-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.search-result-meta {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.search-result-item:hover .search-result-meta {
+    color: #fff;
+}
+
+.search-result-highlight {
+    background: #e50914;
+    color: #fff;
+    font-weight: bold;
+}
+
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+/* Search Results Page */
+.search-results-header {
+    padding: 100px 4% 20px;
+    background: linear-gradient(180deg, #141414 0%, transparent);
+}
+
+.search-results-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.search-filters {
+    padding: 0 4% 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #e50914;
+    border-color: #e50914;
+}
+
+.sort-select {
+    background: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.sort-select:hover {
+    border-color: #e50914;
+}
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 4%;
+}
+
+/* Category Page */
+.category-header {
+    padding: 100px 4% 20px;
+    background: linear-gradient(180deg, #141414 0%, transparent);
+}
+
+.category-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 4%;
+}
+
+/* Search Info Bar */
+.search-info-bar {
+    padding: 80px 4% 10px;
+    color: #b3b3b3;
+    font-size: 1.1rem;
+}
+
+.search-info-bar span {
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* Quick Search Tags */
+.quick-search-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 4%;
+}
+
+.search-tag {
+    background: #333;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.search-tag:hover {
+    background: #e50914;
+    transform: scale(1.05);
+}
+
+/* Loading Animation for Search */
+.search-loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.search-loading i {
+    font-size: 2rem;
+    color: #e50914;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Search */
+@media (max-width: 768px) {
+    .search-container:hover .search-input,
+    .search-input:focus {
+        width: 180px;
+    }
+    
+    .search-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sort-select {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .search-results-grid,
+    .category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
